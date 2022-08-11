@@ -1,0 +1,84 @@
+@import '../scss/import/_mixin.scss';
+
+.listItem {
+  @include disalijust(flex,center,none);
+  width: 100%;
+
+  .gender {
+    width: 14px;
+    height: 14px;
+
+    &.male {
+      background: url(https://image.dalbitlive.com/common/icon/icoMale.png) center/cover no-repeat;
+    }
+
+    &.female {
+      background: url(https://image.dalbitlive.com/common/icon/icoFemale.png) center/cover no-repeat;
+    }
+
+    &.active {
+      display: none;
+    }
+  }
+
+  .nick {
+    line-height: 20px;
+    margin-left: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #202020;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .dataCnt {
+    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 8px;
+    padding-left: 16px;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8B8B8B;
+    line-height: 16px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+    &.starCnt {
+      background-image: url(https://image.dalbitlive.com/common/dataCnt/dataIcon-star.png);
+    }
+    &.listenPoint {
+      background-image: url(https://image.dalbitlive.com/common/dataCnt/dataIcon-time.png);
+    }
+
+    &.djGoodPoint {
+      background-image: url(https://image.dalbitlive.com/common/dataCnt/dataIcon-heart.png);
+    }
+  }
+
+  .cupid {
+    flex: none;
+    display: inline-block;
+    max-width: 120px;
+    height: 16px;
+    margin-right: 8px;
+    padding: 0px 7px 0px 19px;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 500;
+    color: #666;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 14px;
+    border-radius: 100px;
+    background: url(https://image.dalbitlive.com/common/dataCnt/dataIcon-yellowCupid.png) #F6F6F6;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+  }
+}

@@ -1,0 +1,57 @@
+@import '../scss/import/_mixin.scss';
+
+.likeSubWrap {
+
+  position: relative;
+  margin-bottom: 44px;
+  max-width: 480px;
+
+  .swiper-wrapper {
+    padding: 0 16px;
+  
+    .swiper-slide {
+      width: 100px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+  
+    .swiper-slide:last-child {
+      margin-right: 35px;
+    }
+  }
+
+  .likeSub {
+    @include disalijust(flex,center,center);
+    flex-direction: column;
+    min-width: 80px;
+    height: 80px;
+    border: 1px solid #d9d9d9;
+    border-radius: 20px;
+    padding: 0 23px;
+
+    span {
+      font-size: 16px;
+      font-weight: 500;
+      color: inherit;
+      margin-bottom: 6px;
+    }
+  
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      color: #202020;
+    }
+
+  }
+
+  .swiper-wrapper {
+    padding-left: 16px;
+
+    .swiper-slide {
+      width: auto;
+      margin-right: 4px;
+      cursor: pointer;
+    }
+  }
+
+}

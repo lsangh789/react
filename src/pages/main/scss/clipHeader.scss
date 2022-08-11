@@ -1,0 +1,65 @@
+@import '../scss/import/_mixin.scss';
+
+.sticky {
+  flex-wrap: wrap;
+  height: auto;
+  position: sticky;
+  top: 68px !important;
+  left: 0;
+  background-color: white;
+  z-index: 30;
+  @include disalijust(flex,center,none);
+  width: 100%;
+  height: 52px;
+  padding-left: 16px;
+  padding-right: 6px;
+
+  .title {
+    @include disalijust(flex,center,center);
+    height: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    color: #202020;
+  }
+
+  .buttonGroup {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    .benefits {
+      @include disalijust(flex,center,none);
+      height: 40px;
+      margin-right: 13px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #303030;
+      
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(https://image.dalbitlive.com/common/icon/icon_benefit.png) center/cover no-repeat;
+      }
+    }
+
+    &>button {
+      margin-left: 8px;
+    }
+
+    &.active { 
+      display: none;
+    }
+  }
+
+  .search {
+    display: block;
+    width: 100%;
+
+    &.active {
+      display: none;
+    }
+  }
+
+}

@@ -1,0 +1,58 @@
+@import '../scss/import/_mixin.scss';
+
+.djSection {
+  position: relative;
+  width: 100%;
+  margin-bottom: 44px;
+  max-width: 480px;
+
+  .swiper-wrapper {
+    padding: 0 16px;
+  
+    .swiper-slide {
+      width: 87px;
+      margin-right: 16px;
+      cursor: pointer;
+    }
+  
+    .swiper-slide:last-child {
+      margin-right: 32px;
+    }
+  }
+
+  .listColumn {
+    width: 87px;
+
+    .photo {
+      position: relative;
+      height: 87px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .fanBtn {
+    width: 62px;
+    line-height: 30px;
+    background-color: #202020;
+    border: 1px solid #202020;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+  }
+}

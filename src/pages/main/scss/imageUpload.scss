@@ -1,0 +1,94 @@
+@import '../scss/import/_mixin.scss';
+
+.imageUpload {
+  position: relative;
+  width: 100%;
+
+  .titleWrap {
+    @include disalijust(flex,center,none);
+    margin-bottom: 6px;
+
+    .title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #303030;
+    }
+
+    .subTitles {
+      font-size: 12px;
+      font-weight: 400;
+      color: #666;
+      margin-left: 4px;
+    }
+  }
+
+  .uploadWrap {
+    @include disalijust(flex,center,none);
+    width: 100%;
+
+    .uploadlabel {
+      flex: none;
+      display: inline-block;
+      width: 76px;
+      height: 76px;
+      border-radius: 16px;
+      background: url(https://image.dalbitlive.com/common/icon/icon-imageUpload.png) #F6F6F6;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 14px 14px;
+    }
+  }
+
+  .inputLabel {
+    @include disalijust(flex,center,none);
+    margin-bottom: 32px;
+    cursor: pointer;
+
+    .checkIcon {
+      flex: none;
+      display: inline-block;
+      width: 23px;
+      height: 23px;
+      margin-right: 4px;
+      border-radius: 50%;
+      background-image: url(https://image.dalbitlive.com/common/input/checkbox-default.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .checkInfo {
+      @include disalijust(flex,center,none);
+      color: #303030;
+
+      &::after {
+        content: "[필수]";
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #FF3C7B;
+      }
+    }
+
+    .policyBtn {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 500;
+      color: #303030;
+    }
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}
+
+button.submitBtn {
+  line-height: 48px;
+  border-radius: 16px;
+  background: #FF6999;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}

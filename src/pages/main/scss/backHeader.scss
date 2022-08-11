@@ -1,0 +1,70 @@
+@import '../scss/import/_mixin.scss';
+
+.back.sticky {
+  top: 68px !important;
+
+  @include disalijust(flex,center,none);
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    letter-spacing: -.3;
+    pointer-events: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #202020;
+    color: #202020;
+  }
+
+  .back {
+    width: 40px;
+    height: 40px;
+    background: url(https://image.dalbitlive.com/common/header/icoBack-b.png) center/cover no-repeat;
+  
+    &.active {
+      display: none;
+    }
+  }
+
+  .btnMassageAdd {
+    position: absolute;
+    right: 16px;
+
+    &.active {
+      display: none;
+    }
+  }
+
+  .editBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #202020;
+  }
+
+  .benefits {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-right: 13px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #303030;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url(https://image.dalbitlive.com/common/icon/icon_benefit.png) center/cover no-repeat;
+    }
+  }
+
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,177 @@
+@import '../scss/import/_mixin.scss';
+
+.rankingTop {
+
+  position: relative;
+  @include disalijust(flex,center,center);
+  @include flexDir(column,100%);
+  padding: 15px 16px 24px;
+  margin: 0;
+  background-image: url(https://image.dalbitlive.com/ranking/dalla/rankingGradientBg.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 115px;
+
+  .chartSwiper {
+
+    position: relative;
+    width: calc(100% + 30px);
+    margin-bottom: 60px;
+    z-index: 3;
+
+    .swiper-wrapper {
+      padding: 0 50px;
+
+      .swiper-slide {
+        width: auto;
+        margin-right: 12px;
+        cursor: pointer;
+
+        &:last-child {
+          width: 31%;
+        }
+
+      }
+    
+
+    }
+  }
+
+  &::before {
+
+    position: absolute;
+    bottom: 160px;
+    left: -52px;
+    content: "TOP10";
+    font-size: 55px;
+    font-weight: 900;
+    color: #FF3C7B;
+    transform: rotate(-90deg);
+    line-height: 69px;
+    opacity: .24;
+
+  }
+
+  .rankingTopMore {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #303030;
+    line-height: 40px;
+  }
+
+  .title {
+
+    line-height: 36px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #202020;
+    cursor: pointer;
+    width: 100%;
+
+    div {
+      strong {
+        font-weight: 800;
+      }
+      .optionSelect {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        margin-left: 6px;
+        background: url(https://image.dalbitlive.com/ranking/dalla/titleArrow-b.png) center/cover no-repeat;
+      }
+    }
+  }
+
+  .countDown {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 8px 0px 50px 0px;
+    padding-left: 4px;
+    line-height: 25px;
+    white-space: nowrap;
+    font-size: 17px;
+    font-weight: 600;
+    color: #202020;
+    margin-right: auto;
+
+    &::after {
+      position: absolute;
+      top: 0px;
+      right: -28px;
+      content: "남음";
+      font-size: 12px;
+      font-weight: 500;
+      color: #999;
+      
+    }
+  }
+
+  .criteria {
+    position: absolute;
+    top: 37%;
+    right: 0px;
+    transform: translateY(-55%);
+    width: 184px;
+    height: 175px;
+    background: url(https://image.dalbitlive.com/dalla/character/character_criteria.png) center/cover no-repeat;
+  }
+
+  .refreshWrap {
+    position: absolute;
+    bottom: 27px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 32px);
+    height: 40px;
+    border-radius: 100px;
+    background-color: #FFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    
+    .refreshIcon {
+      flex: none;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin-right: 2px;
+      background: url(https://image.dalbitlive.com//common/icon/icon_refresh.png) center/cover no-repeat;
+    }
+
+    .refreshText {
+      font-size: 14px;
+      font-weight: 500;
+      color: #202020;
+      margin-right: 4px;
+
+      strong {
+        font-size: 14px;
+        font-weight: 700;
+        color: #FF3C7B;
+      }
+    }
+
+    .refreshNum {
+      @include disalijust(flex,center,center);
+      width: 35px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #ACACAC;
+      letter-spacing: 4px;
+
+      span {
+        font-size: 14px;
+        font-weight: 700;
+        color: #202020;
+      }
+    }
+  }  
+
+}

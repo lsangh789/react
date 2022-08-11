@@ -1,0 +1,53 @@
+@import '../scss/import/_mixin.scss';
+
+.liveSection {
+
+  position: relative;
+  width: 480px;
+  margin-bottom: 44px;
+
+  .swiper-wrapper {
+    padding: 0 16px;
+  
+    .swiper-slide {
+      width: 116px;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+  
+    .swiper-slide.nextRanking {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100px;
+      height: 200px;
+      padding-top: 8px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .swiper-slide:last-child {
+      margin-right: 32px;
+    }
+  }
+
+  .listColumn {
+    
+    width: 116px;
+    height: 154px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .photo {
+      position: relative;
+      width: 116px;
+      height: 154px;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+  }
+
+}

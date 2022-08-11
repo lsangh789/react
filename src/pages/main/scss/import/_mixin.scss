@@ -1,0 +1,31 @@
+// @mixin pageFrame($position, $hei){
+//     position: $position;
+//     width: 100%;
+//     height: $hei;
+// }
+
+@mixin disalijust($display, $align, $justify){
+    display: $display;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin flexDir($flexdir, $width){
+    flex-direction: $flexdir;
+    width: $width;
+}
+
+@mixin marSizWeiLineh($margin-right,$font-size,$font-weight,$line-height){
+    margin-right: $margin-right;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
+
+@mixin overflowText($word-break, $white-space, $text-overflow, $overflow, $box-sizing){
+    word-break: $word-break;
+    white-space: $white-space;
+    text-overflow: $text-overflow;
+    overflow: $overflow;
+    box-sizing: $box-sizing;
+}

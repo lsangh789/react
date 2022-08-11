@@ -1,0 +1,54 @@
+@import '../scss/import/_mixin.scss';
+
+.cntTitle {
+  margin-bottom: 15px;
+  @include disalijust(flex,center,none);
+  padding: 0 16px;
+
+  h2 {
+    @include disalijust(flex,center,none);
+    height: 28px;
+    line-height: 28px;
+    letter-spacing: -.9px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #202020;
+
+    .nickName {
+      margin-right: 4px;
+      max-width: 200px;
+      font-weight: bold;
+      color: #FF3C7B;
+      letter-spacing: -0.5px;
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+
+}
+
+.subTitle {
+  
+  @include disalijust(flex,center,none);
+  width: 100%;
+  margin: 16px 0 8px;
+  padding: 0 16px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #202020;
+  }
+
+  button {
+    margin-left: auto;
+    letter-spacing: -1px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #303030;
+  }
+
+}

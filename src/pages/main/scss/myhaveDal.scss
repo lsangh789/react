@@ -1,0 +1,40 @@
+@import '../scss/import/_mixin.scss';
+
+.myhaveDal {
+
+  @include disalijust(flex,center,space-between);
+  padding: 12px 16px 24px;
+  padding-bottom: 12px;
+  width: 100%;
+
+  .title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+  }
+
+  .dal {
+    @include disalijust(flex,center,none);
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #202020;
+
+    &::before {
+      content: '';
+      background: url(https://image.dalbitlive.com/mypage/dalla/icon_dal.png) center/cover no-repeat;
+      background-size: 16px;
+      
+    }
+  }
+
+  span.dal::before{
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    background-size: 18px;
+  }
+
+}

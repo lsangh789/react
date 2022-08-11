@@ -1,0 +1,170 @@
+@import '../scss/import/_mixin.scss';
+
+#report {
+  width: 480px;
+
+  section {
+    position: relative;
+    padding: 0 16px;
+    margin-bottom: 15px;
+  }
+
+  .periodWrap {
+    .inputItems {
+
+      .inputBox {
+        input[type='button'] {
+          text-align: left;
+          font-size: 15px;
+          font-weight: 500;
+          color: #303030;
+        }
+      }
+      .inputBtn {
+        width: 84px;
+        background: #202020;
+      }
+    }
+  }
+
+  .summaryWrap {
+
+    .summaryList {
+
+      @include disalijust(flex,center,none);
+      width: 100%;
+      height: 50px;
+      margin-bottom: 8px;
+      padding: 0 12px;
+      border: 1px solid #e3e3e3;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: inherit;
+
+      .icon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+
+        &.timeBroadcast {
+          background: url(https://image.dalbitlive.com/mypage/dalla/report/ico_timeBroadcast.png) center/cover no-repeat;
+        }
+
+        &.byeol {
+          background: url(https://image.dalbitlive.com/mypage/dalla/report/ico_star.png) center/cover no-repeat;
+        }
+
+        &.like {
+          background: url(https://image.dalbitlive.com/mypage/dalla/report/ico_like.png) center/cover no-repeat
+        }
+
+        &.listen {
+          background: url(https://image.dalbitlive.com/mypage/dalla/report/ico_listener.png) center/cover no-repeat;
+        }
+
+        &.timeListen {
+          background: url(https://image.dalbitlive.com/mypage/dalla/report/ico_timeListen.png) center/cover no-repeat;
+        }
+
+        &.dal {
+          background: url(https://image.dalbitlive.com/mypage/dalla/report/ico_dal.png) center/cover no-repeat;
+        }
+      }
+
+      .amount {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .cntTitle {
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 6px;
+  }
+
+  .detailWrap {
+    font-size: 15px;
+    font-weight: 500;
+    color: inherit;
+  }
+
+  .nativeTabmenu {
+    top: 120px;
+    position: sticky;
+    top: 52px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 16px;
+    background-color: #FFF;
+    z-index: 15;
+    li {
+      flex: 1;
+      @include disalijust(flex,center,center);
+      height: 48px;
+      text-align: center;
+      background-color: #ffffff;
+      border-bottom: 2px solid #f2f2f2;
+      font-size: 16px;
+      font-weight: 500;
+      color: #666;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &.active {
+        font-size: 16px;
+        font-weight: 700;
+        color: #202020;
+        border-bottom: solid 2px #202020;
+      }
+    }
+  }
+}
+
+.inputItems {
+  position: relative;
+  @include disalijust(flex,center,none);
+  flex-wrap: wrap;
+  width: 100%;
+
+  .inputBox {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #F6F6F6;
+    border-radius: 16px;
+    background-color: #F6F6F6;
+
+    input {
+      flex: 1;
+      width: 100%;
+      margin: 0 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #202020;
+    }
+  }
+
+  .inputBtn {
+    width: 72px;
+    height: 36px;
+    margin-left: 8px;
+    border-radius: 16px;
+    background-color: #202020;
+    letter-spacing: -1px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+  }
+}
+
+.cntTitle {
+  @include disalijust(flex,center,none);
+  padding: 0 16px;
+}

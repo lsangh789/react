@@ -1,0 +1,78 @@
+@import '../scss/import/_mixin.scss';
+
+#inquireLog {
+
+  width: 100%;
+  padding: 12px 0;
+
+  .inquireLogWrap {
+    @include disalijust(flex,flex-start,flex-start);
+    flex-direction: column;
+    width: 100%;
+
+    .inquireLogList {
+      @include disalijust(flex,center,none);
+      width: 100%;
+      height: 50px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #F2F2F2;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      .inquireLogState {
+        flex: none;
+        margin-right: 8px;
+
+        .complete {
+          @include disalijust(flex,center,center);
+          width: 60px;
+          height: 22px;
+          border: 1px solid #FF3C7B;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 700;
+          color: #FF3C7B;
+
+          &.active {
+            display: none;
+          }
+        }
+
+        .notComplete {
+          @include disalijust(flex,center,center);
+          width: 60px;
+          height: 22px;
+          border: 1px solid #1d1d1d;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 700;
+          color: #1d1d1d;
+
+          &.active {
+            display: none;
+          }
+        }
+      }
+
+      .inquireLogTitle {
+        flex: 1;
+        font-size: 15px;
+        font-weight: 600;
+        color: #303030;
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-right: 40px;
+      }
+
+      .inquireLogDate {
+        flex: none;
+        font-size: 12px;
+        font-weight: 400;
+        color: #666;
+      }
+    }
+  }
+
+}

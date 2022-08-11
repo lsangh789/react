@@ -1,0 +1,24 @@
+@import '../scss/import/_mixin.scss';
+
+.cntTitle {
+  margin-bottom: 15px;
+  @include disalijust(flex,center,none);
+  padding: 0 16px;
+
+  h2 {
+    height: 28px;
+    line-height: 28px;
+    letter-spacing: -.9px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #202020;
+  }
+
+  button {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 500;
+    color: #303030;
+    cursor: pointer;
+  }
+}

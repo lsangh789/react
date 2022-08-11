@@ -1,0 +1,92 @@
+@import '../scss/import/_mixin.scss';
+
+#team {
+  width: 480px;
+
+  #cntWrapper {
+
+    .swiper {
+      width: 100%;
+      margin-top: 24px;
+
+      .swiper-pagination-bullets{
+        bottom: 0;
+
+        .swiper-pagination-bullet {
+          margin: 0 2.5px;
+        }
+
+        .swiper-pagination-bullet-active {
+          background: #FF3C7B;
+        }
+      }
+    }
+
+    .slideTitle {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      padding: 0 16px;
+
+      .title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #202020;
+      }
+
+      .subTitle {
+        line-height: 20px;
+        margin-top: 8px;
+        font-size: 15px;
+        font-weight: 400;
+        color: #202020;
+      }
+    }
+
+    .imgItem {
+      
+      img {
+        width: 100%;
+      }
+    }
+
+    .titleWrap {
+      margin-top: 24px;
+      padding: 0 16px;
+    }
+
+    .listNone {
+      flex: 1;
+      @include disalijust(flex,center,center);
+      flex-direction: column;
+      height: 100%;
+      min-height: 160px;
+      text-align: center;
+
+      button {
+        width: 112px;
+        height: 36px;
+        margin-top: 20px;
+        border: 1px solid #D5D5D5;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #666;
+      }
+    }
+
+    .buttonWrap {
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+      margin-top: auto;
+      padding: 0 16px 30px;
+
+      .submitBtn {
+        width: 100%;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+      }
+    }
+
+  }
+}

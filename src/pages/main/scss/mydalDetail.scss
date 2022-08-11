@@ -1,0 +1,52 @@
+@import '../scss/import/_mixin.scss';
+
+.mydalDetail {
+
+  @include disalijust(flex,center,none);
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #F8F8F8;
+
+  .dalCount {
+    flex: 1;
+    @include disalijust(flex,flex-start,flex-start);
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3E3E3E;
+
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    &>div{
+      @include disalijust(flex,center,none);
+      font-size: 16px;
+      font-weight: 400;
+      color: #202020;
+
+      span {
+        font-size: 17px;
+        font-weight: 700;
+        color: #202020;
+        margin-right: 2px;
+      }
+    }
+
+    &>div::before {
+      content: "";
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 11px;
+      background: url(https://image.dalbitlive.com/common/icon/icon_dal.png) center/cover no-repeat;
+    }
+  }
+
+}

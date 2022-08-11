@@ -1,0 +1,80 @@
+@import '../scss/import/_mixin.scss';
+
+.mainSwiper {
+  max-width: 480px;
+  height: 360px;
+  margin-bottom: 0px;
+
+  .listColumn {
+    position: relative;
+    @include disalijust(flex,center,center);
+    @include flexDir(column,none);
+    cursor: pointer;
+
+    .photo {
+      @include disalijust(flex,center,center);
+      width: 100%;
+      height: 360px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &::after {
+        position: absolute;
+        left: 0;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        background-image: linear-gradient(to top, #fff 0%, rgba(255,255,255,0.98) 5%, rgba(255,255,255,0.92) 10%, rgba(255,255,255,0.85) 15%, rgba(255,255,255,0.75) 20%, rgba(255,255,255,0.65) 25%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0.35) 35%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.14) 43%, rgba(255,255,255,0) 100%);
+      }
+    }
+
+    .info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      @include disalijust(flex,flex-start,flex-end);
+      @include flexDir(column,100%);
+      height: 50%;
+      padding: 0px 16px 12px;
+      background-image: url(https://image.dalbitlive.com/images/mainmask.png);
+
+      .animation {
+        width: 100%
+      }
+
+      .badgeGroup {
+        @include disalijust(flex,center,none);
+        height: 16px;
+        margin-bottom: 8px;
+      }
+
+      .title {
+        display: block;
+        width: 72%;
+        line-height: 30px;
+        margin-bottom: 6px;
+        font-size: 24px;
+        font-weight: 600;
+        color: #202020;
+        overflow: hidden;
+      }
+
+      .nick {
+        width: 72%;
+        line-height: 24px;
+        opacity: .7;
+        font-size: 15px;
+        font-weight: 400;
+        color: #202020;
+      }
+    }
+
+  }
+
+}

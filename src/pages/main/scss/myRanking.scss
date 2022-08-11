@@ -1,0 +1,16 @@
+@import '../scss/import/_mixin.scss';
+
+.myRanking {
+
+  position: relative;
+  @include disalijust(flex,center,center);
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 0px 27px;
+  box-sizing: border-box;
+
+  .cntTitle {
+    width: 100%;
+  }
+
+}

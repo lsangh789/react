@@ -1,0 +1,18 @@
+@import '../../scss/import/_mixin.scss';
+
+#searchPage {
+
+  header{
+    flex-wrap: wrap;
+    height: auto;
+
+    h1 {
+      height: 52px;
+    }
+  }
+
+  .subContent {
+    padding-top: 10px;
+  }
+
+}

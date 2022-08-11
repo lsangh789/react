@@ -1,0 +1,65 @@
+@import '../scss/import/_mixin.scss';
+
+.inputItem {
+  position: relative;
+  @include disalijust(flex,center,none);
+  flex-wrap: wrap;
+  width: 100%;
+
+  .title {
+    flex: none;
+    width: 100%;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #303030;
+  }
+
+  .inputBox {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border: 1px solid #F6F6F6;
+    border-radius: 16px;
+    background-color: #F6F6F6;
+
+    input {
+      flex: 1;
+      width: 100%;
+      margin: 0 16px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #202020;
+    }
+  }
+
+  .inputBox.focus {
+    border: 1px solid #FF37CD;
+    background-color: #FFF;
+  }
+
+  .textareaBox {
+    position: relative;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #F6F6F6;
+    border-radius: 16px;
+    background-color: #F6F6F6;
+    overflow: hidden;
+
+    &.focus {
+      border: 1px solid #FF37CD;
+      background-color: #FFF;
+    }
+
+    textarea {
+      width: 100%;
+      background-color: transparent;
+      font-size: 15px;
+      font-weight: 400;
+      color: #202020;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import '../scss/import/_mixin.scss';
+
+#footerWrap {
+
+  width: 100%;
+  margin-top: auto;
+  padding: 30px 0 50px;
+  background-color: #F7F7F7;
+  text-align: center;
+
+  .infoList>li {
+
+    display: inline-block;
+    position: relative;
+    padding: 5px 6px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #202020;
+    cursor: pointer;
+
+    }
+  }
+
+  .infoList>li {
+    
+    &:first-child::before {
+      content: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 1px;
+      height: 10px;
+      background-color: #202020;
+    }
+
+  }
+
+  .infoBox {
+    @include disalijust(flex,none,center);
+    @include flexDir(column,290px);
+    margin: 20px auto 0;
+    font-size: 12px;
+
+    &>li {
+      span {
+        display: inline-block;
+        padding: 2px 2px;
+        color: #202020;
+        letter-spacing: -0.4px;
+
+        .emailLink {
+          color: #202020;
+        }
+      }
+
+      span.sbj {
+        color: #999;
+      }
+
+    }
+  }
+
+  .copyright {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #999;
+  }

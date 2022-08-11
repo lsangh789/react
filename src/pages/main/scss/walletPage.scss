@@ -1,0 +1,229 @@
+@import '../scss/import/_mixin.scss';
+
+#walletPage {
+  width: 480px;
+
+  .nativeTabmenu {
+    position: sticky;
+    top: 52px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 16px;
+    background-color: #FFF;
+    z-index: 15;
+
+    li {
+      flex: 1;
+      @include disalijust(flex,center,center);
+      height: 48px;
+      border-bottom: 2px solid #f2f2f2;
+      font-size: 16px;
+      font-weight: 500;
+      color: #666;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      &.active {
+        font-size: 16px;
+        font-weight: 700;
+        color: #202020;
+        border-bottom: solid 2px #202020;
+      }
+    }
+  }
+
+  .currentWrap {
+    padding: 0 16px;
+    margin-bottom: 12px;
+
+    .currentBox {
+      @include disalijust(flex,center,space-between);
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.2);
+      padding: 0 12px 0 20px;
+
+      .payCount {
+        @include disalijust(flex,center,none);
+
+        i {
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-right: 4px;
+
+          &.iconDal {
+            background: url(https://image.dalbitlive.com/store/dalla/icoDal.png) center/cover no-repeat;
+          }
+
+          &.iconStar {
+            background: url(https://image.dalbitlive.com/store/dalla/icoByeol.png) center/cover no-repeat;
+          }
+        }
+
+        .text {
+          font-size: 14px;
+          font-weight: 500;
+          color: #3e3e3e;
+        }
+
+        .amount {
+          font-size: 16px;
+          font-weight: 700;
+          color: #FF6999;
+          margin-left: 8px;
+        }
+      }
+
+      .submitBtn {
+        @include disalijust(flex,center,none);
+        flex: none;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 16px;
+      }
+    }
+  }
+
+  .doExchange {
+    position: relative;
+    padding: 0 16px 30px;
+
+    .noticeBtn {
+      @include disalijust(flex,center,none);
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #303030;
+
+      .noticeIcon {
+        @include disalijust(flex,center,center);
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #fff;
+        background: #666;
+        border-radius: 100%;
+        margin-right: 4px;
+      }
+    }
+
+    .amountBox {
+      @include disalijust(flex,center,none);
+      width: 100%;
+      height: 75px;
+      padding: 0 15px;
+      background: #f8f8f8;
+      border-radius: 16px;
+      font-size: 13px;
+
+      &.apply {
+        background: #FFF5F8;
+      }
+      
+      .iconStar {
+        flex: none;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        background: url(https://image.dalbitlive.com/mypage/dalla/icon_star.png) center/cover no-repeat;
+      }
+
+      p {
+        white-space: nowrap;
+      }
+
+      .counter {
+        @include disalijust(flex,flex-end,none);
+        margin-left: auto;
+
+        .num {
+          width: 100%;
+          text-align: right;
+          font-size: 24px;
+          font-weight: 400;
+          color: #202020;
+        }
+
+        .unit {
+          font-size: 15px;
+          font-weight: bold;
+          color: #202020;
+          margin: 0 0 4px 4px;
+        }
+
+        &.active {
+          .num {
+            width: 100%;
+            text-align: right;
+            font-size: 24px;
+            font-weight: 400;
+            color: #202020;
+          }
+
+          .unit {
+            font-size: 15px;
+            font-weight: bold;
+            color: #202020;
+            margin: 0 0 4px 4px;
+          }
+        }
+      }
+    }
+
+    .infoBoxs {
+      display: flex;
+      flex-direction: column;
+      margin-left: 15px;
+      padding: 12px 0 12px 8px;
+      border-left: 1px solid #dcdcdc;
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: inherit;
+        position: relative;
+
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: -10.5px;
+          transform: translateY(-50%);
+          content: "";
+          width: 4px;
+          height: 4px;
+          border-radius: 100%;
+          background: #D6D6D6;
+        }
+      }
+    }
+
+    .buttonGroup {
+      display: flex;
+      margin-top: 16px;
+
+      button {
+        width: 100%;
+        height: 48px;
+        margin-right: 8px;
+        letter-spacing: -0.5px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FF6999;
+        border: 1px solid #FF6999;
+        border-radius: 16px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+header.back, header.sub {
+  padding: 4px;
+}

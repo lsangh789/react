@@ -1,0 +1,21 @@
+@import '../scss/import/_mixin.scss';
+
+.mypageBottom {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 24px;
+  padding-top: 16px;
+  width: 100%;
+
+  .submitBtn  {
+    flex: 1;
+    margin: 0 16px;
+    border: 1px solid #D5D5D5;
+    background-color: white;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+    line-height: 48px;
+  }
+}
