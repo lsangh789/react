@@ -1,0 +1,45 @@
+@import '../scss/import/_mixin.scss';
+
+.searchWrap {
+  top: 120px;
+  padding-bottom: 15px;
+  position: sticky;
+  width: 100%;
+  padding: 8px 16px 0;
+  background-color: #FFF;
+  z-index: 15;
+  top: 120px;
+  padding-bottom: 15px;
+
+  .seachFrom  {
+    @include disalijust(flex,center,none);
+    width: 100%;
+    height: 50px;
+    padding: 0px 10px 0px 16px;
+    border-radius: 16px;
+    border: 1px solid #F6F6F6;
+    background-color: #F6F6F6;
+    box-sizing: border-box;
+    
+
+    .searchInput {
+      flex: 1;
+    }
+
+    .searchBtn {
+      flex: none;
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .seachFrom.focus {
+    border: 1px solid #FF37CD;
+    background-color: #FFF;
+  }    
+
+}

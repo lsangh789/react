@@ -1,0 +1,122 @@
+@import '../scss/import/_mixin.scss';
+
+
+.subContent {
+    .faqSection {
+        position: relative;
+        @include disalijust(flex,flex-start,flex-start);
+        flex-direction: column;
+        width: 100%;
+    
+        .faqTitle {
+            @include disalijust(flex,center,none);
+            width: 100%;
+            padding: 12px 16px;
+            line-height: 26px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #202020;
+            box-sizing: border-box;
+        }
+        
+        .faqWrap {
+            @include disalijust(flex,flex-start,flex-start);
+            @include flexDir(column,100%);
+
+            .faqList {
+                @include disalijust(flex,flex-start,flex-start);
+                @include flexDir(column,100%);
+
+                .questionArea {
+                    @include disalijust(flex,flex-start,none);
+                    width: 100%;
+                    padding: 12px 16px;
+                    border-bottom: 1px solid #F2F2F2;
+                    box-sizing: border-box;
+                    cursor: pointer;
+
+                    .qmark {
+                        @include marSizWeiLineh(8px,15px,700,25px);
+                        color: #FF3C7B;
+                    }
+
+                    .question {
+                        flex: 1;
+                        @include marSizWeiLineh(20px,15px,500,25px);
+                        color: #202020;
+                        display: -webkit-box;
+                        overflow: hidden;
+                    }
+
+                    .down {
+                        @include disalijust(flex,flex-start,none);
+                        width: 20px;
+                        height: 20px;
+                        background-position: center;
+                        background-size: cover;
+                        background-image: url("https://image.dalbitlive.com/common/arrow/grayArrow-up.png");
+                    }
+
+                    .up {
+                        @include disalijust(flex,flex-start,none);
+                        width: 20px;
+                        height: 20px;
+                        background-position: center;
+                        background-size: cover;
+                        background-image: url("https://image.dalbitlive.com/common/arrow/grayArrow-down.png");
+                    }
+
+
+                }
+
+                .answerArea {
+                    position: relative;
+                    width: 100%;
+                    @include marSizWeiLineh(none,14px,400,25px);
+                    background-color: #F6F6F6;;
+                    color: #303030;
+                    box-sizing: border-box;
+                    padding: 15px 16px 15px 35px;
+
+                    &::before {
+                        content: "A";
+                        position: absolute;
+                        top: 15px;
+                        left: 16px;
+                        line-height: 25px;
+                        margin-right: 8px;
+                        font-size: 15px;
+                        font-weight: 700;
+                        color: #666;
+                    }
+
+                    .answerText {
+                        display: inline;
+                    }
+
+                    .answerText {
+                        p {
+                            p,span,font {
+                                font-size: 10pt;
+                            }
+
+                            u {
+                                text-decoration: underline;
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+
+                .closed {
+                    .close {
+                        display: none;
+                    }
+                }
+
+            }
+        }
+    }
+}
