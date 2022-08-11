@@ -1,0 +1,298 @@
+@import "./_index.scss";
+@import "./reset";
+
+@keyframes opactity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+$styleLength: 4;
+
+@mixin tabmenuStyle-1 {
+  @include flex(center);
+  height: 20px;
+  margin-left: auto;
+
+  li {
+    position: relative;
+    padding: 0 10px;
+    @include font(14px, 600, #ACACAC);
+    cursor: pointer;
+
+    &:nth-child(-n+3)::after{
+      position: absolute;
+      top: 5px;
+      right: 0;
+      display: block;
+      content: '';
+      width: 1px;
+      height: 10px;
+      background-color: #ccc;
+    }
+
+    &.active {
+      @include font(none, 700, #202020);
+      cursor: default;
+    }
+  }
+}
+
+
+@mixin tabmenuStyle-2($value) {
+  $nav-langth: $value;
+  $nav-width: calc(100% / $value);
+  @include flex(center);
+
+  li {
+    line-height: 48px;
+    text-align: center;
+    @include font(16px, 600, #ACACAC);
+    cursor: pointer;
+    flex: 1;
+
+    cursor: pointer;
+    &.active {
+      @include font(none, 700, #202020);
+      // background-color:#f9f9f9;
+      cursor: default;
+    }
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}).active {
+        ~ .underline {
+          left:calc(calc(100% / #{$value}) * #{$i} - (calc(100% / #{$value}) / 2));
+        }
+      }
+    }
+  }
+  .underline {
+    @include position-bottom-left;
+    width: 30px;height: 4px;border-radius:100px;
+    transform: translateX(-50%);
+    border:1px solid red;
+    background-color:red;
+    transition: all .2s ease-in-out;
+
+  }
+}
+
+@mixin tabmenuStyle-3 {
+
+  @include flex(center);
+  padding: 0 16px;
+  background-color: #fff;
+  z-index: 15;
+  cursor: pointer;
+
+  li {
+    flex: 1;
+    line-height: 44px;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom: 2px solid #f2f2f2; 
+    @include font(16px, 500, #666);
+
+    &.active {
+      border-bottom: 2px solid #202020; 
+      @include font(16px, 700, #202020);
+    }
+  }
+
+}
+
+@mixin tabmenuStyle-4($value) {
+
+  position: relative;
+  @include flex(center, center);
+  margin-top: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  li {
+    flex: 1;
+    text-align: center;
+    height: 48px;
+    border-bottom: 2px solid #F2F2F2;
+    @include flex(center, center);
+    @include font(16px, 600, #ACACAC);
+    box-sizing: border-box;
+
+    &.active {
+      @include font(16px, 700, #FF6999);
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}).active {
+        ~ .underline {
+          left:calc(100% / #{$value} * (#{$i - 1}));
+        }
+      }
+    }
+    
+  }
+  .underline {
+    height: 2px;
+    background-color: #FF6999;   
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% / #{$value});
+    transition: all .2s ease-in-out;
+  }
+
+}
+
+@mixin tabmenuStyle-5 {
+  position: relative;
+  @include flex(center);
+  overflow-x: hidden;
+
+  li {
+    flex: 1;
+    position: relative;
+    @include flex(center, center);
+    height: 48px;
+    @include font(18px, 800, rgba(255,255,255,0.6));
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &.active {
+      @include font(18px, 800, #fff);
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}).active {
+        ~ .wrapboxBg {
+          left:calc(-100% * #{$i} + 100%);
+        }
+      }
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}).active {
+        ~ .underline {
+          left:calc(25% * #{$i} - 12.5%);
+        }
+      }
+    }
+
+  }
+
+  .wrapboxBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 400%;
+    height: 100%;
+    transition: left .2s ease-in-out;
+    background: linear-gradient(to right, #AF6FF5 0%, #CD79F1 24%, #CE7AF2 25%, #EB84EE 49%, #EB84EE 50%, #F574CD 74%, #F675CE 75%, #FF64AC 100%);
+    background-size: 100%;
+  }
+
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 12.5%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 5px;
+    border-radius: 100px;
+    transition: left .2s ease-in-out;
+    background-color: rgba(255,255,255,0.8);
+  }
+
+}
+
+@mixin tabmenuStyle-6 {
+
+  position: relative;
+  @include flex(center);
+  width: 100%;
+  border-radius: 100px;
+  background-color: #F6F6F6;
+
+  li {
+    flex: 1;
+    @include flex(center, center);
+    @include font(14px, 500, #666);
+    height: 36px;
+    box-sizing: border-box;
+    z-index: 2;
+    cursor: pointer;
+
+    &.active {
+      @include border(#666666, 100px, 1px);
+      width: 100%;
+      height: 36px;
+      animation: opactity 0.5s ease-in-out forwards;
+      @include font(14px, 700, #1A1A1A);
+    }
+  }
+
+}
+
+@mixin tabmenuStyle-7 {
+  display: flex;
+  margin-bottom: 8px;
+
+  li {
+    @include flex(center, center);
+    line-height: 36px;
+    margin-right: 4px;
+    padding: 0 15px;
+    background: #f6f6f6;
+    border-radius: 100px;
+    @include font(13px, 500, #666);
+    cursor: pointer;
+
+    &.active {
+      @include font(13px, 600, #202020);
+      color: #fff;
+      background: #202020;
+    }
+  }
+
+}
+
+.mixinTitle {
+  line-height:24px;
+  margin-bottom:8px;
+  @include font(15px,$Bold,#303030);
+}
+
+.subTabmenu1 {
+  @include tabmenuStyle-1;
+  // @include tabmenuStyle-2($styleLength);
+}
+
+.subTabmenu2 {
+  @include tabmenuStyle-2($styleLength);
+}
+
+.subTabmenu3 {
+  @include tabmenuStyle-3;
+}
+
+.subTabmenu4 {
+  @include tabmenuStyle-4($styleLength);
+}
+
+.subTabmenu5 {
+  @include tabmenuStyle-5;
+}
+
+.subTabmenu6 {
+  @include tabmenuStyle-6;
+}
+
+.subTabmenu7 {
+  @include tabmenuStyle-7;
+}
+
+
+
+

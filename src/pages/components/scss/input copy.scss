@@ -1,0 +1,785 @@
+@import "./_index.scss";
+@import "./tabmenu.scss";
+
+@keyframes popSlideDown {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes popSlideUp {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes trSlideDown {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 100%, 0);
+  }
+}
+@keyframes trSlideUp {
+  0% {
+    transform: translate3d(-50%, 100%, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@mixin title {
+  @include flex(flex-start);
+  @include font(13px, 600, #303030);
+  flex: none;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+@mixin inputBox {
+  position: relative;
+  flex: 1;
+  @include flex(center);
+  height: auto;
+  @include border(#F6F6F6, 16px, 1px);
+  background-color: #F6F6F6;
+
+  &.focus {
+    border-color: #FF3C7B;
+    background-color: white;
+  }
+
+  input {
+    padding: 12px 0 ;
+    flex: 1;
+    width: 100%;
+    margin: 0 16px;
+    @include font(15px, 500, #202020);
+    text-align: left;
+  }
+
+  button {
+    padding: 12px 0 ;
+    flex-shrink: 0;
+    margin-right: 16px;
+  }
+
+  textarea {
+    padding: 12px 16px;
+    width: 100%;
+    background-color: transparent;
+    @include font (15px, 400, #202020);
+  }
+
+  p {
+    padding: 12px 16px ;
+    @include font(15px, 500, #303030);
+
+    span {
+      font-size: 13px;
+    }
+  }
+
+}
+
+@mixin textareaBox {
+  position: relative;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #F6F6F6;
+  border-radius: 16px;
+  background-color: #F6F6F6;
+  overflow: hidden;
+
+  &.focus {
+    border-color: #FF3C7B;
+    background-color: white;
+  }
+
+  textarea {
+    border: 0;
+    outline: none;
+    border: none;
+    resize: none;
+  }
+}
+
+// inquireWrite - 1
+.inquireWrite { 
+
+  .inputWrap {
+    margin-bottom: 16px;
+
+    .title {
+      @include flex(flex-start);
+      @include font(13px, 600, #303030);
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        margin-left: 2px;
+        border-radius: 50%;
+        background-color: #FF3C7B;
+      }
+
+    }
+
+    .inputBox {
+
+      button {
+        flex: 1;
+        @include flex(center);
+        margin: 0 15px;
+        text-align: left;
+        @include font(15px, 400, #666);
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          margin-left: auto;
+          background: url(https://image.dallalive.com/common/icoArrow-b.png) center/cover no-repeat;
+        }
+      }
+
+      .selectWrap {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        max-height: 230px;
+        padding: 0 16px;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+        overflow-y: auto;
+
+        .option {
+          line-height: 50px;
+          @include font(15px, 500, #202020);
+        }
+      }
+
+    }
+
+  }
+
+}
+
+// 5
+.cashReceipt {
+  margin-top: 8px;
+}
+
+.tabmenuWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin-bottom: 4px;
+    @include font(13px, 400, #666);
+  }
+
+  .tabmenu {
+    @include tabmenuStyle-7;
+  }
+}
+
+.inputWrap {
+  position: relative;
+  @include flex(center);
+  flex-wrap: wrap;
+  width: 100%;
+
+  .title {
+    @include title;
+  }
+
+  .inputBox {
+    @include inputBox;
+
+  }
+
+  .textareaBox {
+    @include textareaBox;
+  }
+
+  .textCount {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    @include font(14px, 400, #666);
+    line-height: 20px;
+    text-align: right;
+
+  }
+
+  .submitBtn {
+    @include flex(center, center);
+    width: 72px;
+    height: 36px;
+    margin-left: 8px;
+    border-radius: 16px;
+    background-color: #202020;
+    letter-spacing: -1px;
+    @include font(14px, 500, #fff);
+  }
+
+}
+
+// 6 
+.phone {
+
+  .inputWrap {
+      @include flex(center, center);
+      flex-wrap: wrap;
+      width: 100%;
+    .submitBtn {
+      background-color: #FF6999;
+    }
+  
+  }
+
+}
+
+
+// 7
+.search {
+  margin-bottom: 16px;
+  .inputBox {
+
+    &::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      background: url(https://image.dallalive.com/common/icon/icon-search.png) 12px center/17px no-repeat;
+    }
+
+    input {
+      margin: 0;
+    }
+
+  }
+
+}
+
+// 8
+.search2 {
+  margin-bottom: 16px;
+  .inputBox {
+    &::after {
+      content: "";
+      width: 40px;
+      height: 40px;
+      background: url(https://image.dallalive.com/common/icon/icon-search.png) 12px center/17px no-repeat;
+    }
+  }
+}
+
+// 9
+.textareaInput {
+
+  .inputWrap {
+    .title {
+      @include font(13px, 600, #303030);
+      margin-bottom: 6px;
+    }
+
+    .inputBox {
+      height: 150px;
+      padding: 12px 20px 35px;
+      overflow: hidden;
+      box-sizing: border-box;
+      display: block;
+
+      input {
+        @include font(15px, 400, #333);
+        margin: 0;
+      }
+
+    }
+
+  }
+
+  .btnSection {
+    @include flex(center);
+    margin-top: 8px;
+    margin-bottom: 16px;
+
+    .rightBtn {
+      margin-left: auto;
+  
+      .submitBtn {
+        position: relative;
+        @include flex(center, center);
+        width: 62px;
+        height: 32px;
+        border-radius: 100px;
+        @include font(13px, 500, #fff);
+        box-sizing: border-box;
+        cursor: pointer;
+        background-color: #bbb;
+        pointer-events: none;
+
+        &.active {
+          background-color: #FE3C7B;
+          pointer-events: auto;
+        }
+      }
+    }
+
+  }
+
+}
+
+// 10
+.blockInput {
+  margin-bottom: 16px;
+  .inputBox {
+    padding: 0 16px;
+
+    .filterBtn {
+      flex: none;
+      position: relative;
+      @include flex(center, space-between);
+      @include font(12px, 500, #303030);
+      width: 59px;
+      margin-right: 8px;
+      cursor: pointer;
+  
+      .arrowDown {
+        width: 20px;
+        height: 20px;
+        background: url(https://image.dallalive.com/clip/dalla/ico_arrowDown.png) center/cover no-repeat;
+      }
+  
+      .arrowUp {
+        width: 20px;
+        height: 20px;
+        background: url(https://image.dallalive.com/clip/dalla/ico_arrowUp.png) center/cover no-repeat;
+      }
+
+      .option {
+        position: absolute;
+        top: 24px;
+        left: -15px;
+        display: flex;
+        flex-direction: column;
+        width: 124px;
+        border-radius: 8px;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.16%);
+        background: #fff;
+        z-index: 5;
+
+        li {
+          @include flex(center);
+          line-height: 40px;
+          padding-left: 28px;
+          border-bottom: 1px solid #f6f6f6;
+          letter-spacing: -0.5px;
+          text-align: left;
+
+          &.checked {
+            padding-left: 8px;
+
+            &::before {
+              display: inline-block;
+              content: "";
+              width: 16px;
+              height: 16px;
+              margin-right: 4px;
+              background: url(https://image.dallalive.com/clip/dalla/ico_check.png) center/cover no-repeat;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// 11
+.broadcastTextarea {
+  .textareaBox {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px 35px;
+    border-radius: 16px;
+    box-sizing: border-box;
+
+    textarea {
+      width: 100%;
+      background-color: transparent;
+      @include font(15px, 400, #202020);
+    }
+
+  }
+
+  .btnSection {
+    @include flex(center);
+    margin-top: 8px;
+    margin-bottom: 16px;
+
+    .deleteBtn {
+      position: relative;
+      @include flex(center, center);
+      width: 62px;
+      height: 32px;
+      border-radius: 100px;
+      @include font(13px, 600, #666);
+      box-sizing: border-box;
+      cursor: pointer;
+      border: 1px solid #D5D5D5;
+    }
+
+    .rightBtn {
+      @include flex(center);
+      margin-left: auto;
+
+      button {
+        margin-right: 8px;
+      }
+
+      .submitBtn {
+        position: relative;
+        @include flex(center, center);
+        width: 62px;
+        height: 32px;
+        border-radius: 100px;
+        @include font(13px, 500, #fff);
+        box-sizing: border-box;
+        cursor: pointer;
+        background-color: #bbb;
+        pointer-events: none;
+
+        &.active {
+          background-color: #FE3C7B;
+          pointer-events: auto;
+        }
+      }
+    }
+
+  }
+}
+
+// 12 
+.prohibitionInput {
+
+  .inputWrap {
+    margin-bottom: 8px;
+
+    .submitBtn {
+      @include flex(center, center);
+      width: 84px;
+      height: 42px;
+      border: 1px solid #202020;
+      border-radius: 14px;
+      @include font(14px, 600, #fff);
+      background: #202020;
+
+      &.delete {
+        background: #fff;
+        color: #666;
+      }
+    }
+  }
+
+}
+
+// 13
+.qiuckInput {
+
+  .listHead {
+    @include flex(center);
+    margin-bottom: 6px;
+
+    .titleWrap {
+      flex: 1;
+      @include flex(center);
+
+      .listIndex {
+        flex: none;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 18px;
+        text-align: center;
+        border: 1px solid #000;
+        border-radius: 50%;
+        @include font(16px, 600, #000);
+      }
+
+      .listTitle {
+        @include font(18px, 600, #202020);
+        margin-left: 4px;
+      }
+
+    }
+
+    .saveBtn {
+      flex: none;
+      display: inline-block;
+      height: 32px;
+      padding: 0 20px;
+      background-color: #bbb;
+      @include font(13px, 600, #fff);
+      border-radius: 100px;
+      box-sizing: border-box;
+    }
+  }
+
+  .inputBox {
+    border: none;
+    border-radius: 16px;
+    background-color: transparent;
+
+    &.focus{
+      input {
+        border-color: #FF3C7B;
+        background-color: white;
+      }
+    }
+
+    .category {
+      width: 50px;
+      @include font(13px, 400, #303030);
+      margin-bottom: 8px;
+    }
+
+    input {
+      border: 1px solid #F6F6F6;
+      border-radius: 16px;
+      background-color: #F6F6F6;
+      height: 50px;
+      padding: 0 15px;
+      margin: 0 0 8px 0;
+    }
+  }
+
+}
+
+// 14 
+.checkInput {
+
+  .title {
+    @include font(20px, 500, #202020);
+    margin-bottom: 10px;
+  }
+
+  .inputBox {
+    position: relative;
+    @include flex(center, space-between);
+    width: 100%;
+    height: 50px;
+    padding: 0px 8px 0px 15px;
+    margin-bottom: 8px;
+    border-radius: 16px;
+    background-color: #F8F8F8;
+    box-sizing: border-box;
+
+    &.focus {
+      border-color: transparent;
+      background-color: #F8F8F8;
+    }
+
+  }
+
+  .spanTitle {
+    @include font(15px, 500, #303030);
+    width: 100%;
+  }
+
+  .inputLabel {
+    flex: none;
+    @include flex(center);
+    cursor: pointer;
+
+    .blind {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+
+      &:checked+.switchBtn {
+        background: #FF3C7B;
+      }
+
+      &:checked+.switchBtn::after {
+        transform: translate(21px);
+      }
+    }
+
+    .switchBtn {
+      flex: none;
+      position: relative;
+      width: 52px;
+      height: 31px;
+      border-radius: 100px;
+      margin: 0 auto;
+      background: #D2D2D4;
+      transition: 0.2s cubic-bezier(0.5, 0, 0.5, 1);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15%);
+        transition: 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+      }
+    }
+  }
+}
+
+.message {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 460px;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  background-color: rgba(255, 60, 123, 0.9);
+  color: rgb(255, 255, 255);
+  border-radius: 12px;
+  z-index: 120;
+  border:10px solid red;
+
+  &.up {
+    animation-name: trSlideUp;
+    animation-duration: 0.5s;
+    animation-timing-function: ease forwards;
+  }
+
+  &.down {
+    animation-name: trSlideDown;
+    animation-duration: 0.5s;
+    animation-timing-function: ease forwards;
+  }
+}
+
+// 15
+.radioInput {
+  
+  .inputBox {
+    padding: 12px 8px 12px 15px;;
+    margin-bottom: 8px;
+    &.focus {
+      border-color: transparent;
+      background-color: #F8F8F8;
+    }
+
+    .titleWrap {
+      width: 100%;
+
+      .title {
+        @include font(15px, 600, #303030);
+      }
+    }
+  
+    .radioBox {
+      @include flex(center);
+      cursor: pointer;
+  
+      .blind {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+  
+        &:checked+.radioBtn {
+          border: 5px solid #FF3C7B;
+        }
+      }
+  
+      .radioBtn {
+        flex: none;
+        position: relative;
+        width: 23px;
+        height: 23px;
+        border-radius: 50%;
+        border: 2px solid #E3E3E3;
+        box-sizing: border-box;
+        
+      }
+    }
+  }
+
+}
+
+// 16
+.reportInput {
+
+  .inputWrap {
+    .submitBtn {
+      width: 84px;
+      background: #202020;
+    }
+  }
+
+}
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 80;
+
+  .slideLayer {
+    padding: 0 16px 32px 16px;
+    position: relative;
+    @include flex(center, flex-start);
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 30px 30px 0 0;
+    margin: 0 auto;
+    background-color: white;
+    box-sizing: border-box;
+
+    &.slideUp {
+      animation: popSlideUp .4s ease forwards;
+    }
+
+    &.slideDown {
+      animation: popSlideDown .4s ease forwards;
+    }
+
+    h3 {
+      width: 100%;
+      line-height: 48px;
+      padding-top: 20px;
+      text-align: center;
+      @include font(16px, bold, #202020);
+    }
+  }
+}

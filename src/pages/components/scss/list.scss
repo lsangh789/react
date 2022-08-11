@@ -1,0 +1,1523 @@
+@import "./_index.scss";
+
+// 세로 list
+@mixin listColumn {
+  .listColumn {
+    position: relative;
+    flex-shrink: 0;
+    @include flex(center, center);
+    flex-direction: column;
+    min-width: 0;
+
+    .photo {
+      position: relative;
+      width: auto;
+      height: auto;
+      border-radius: inherit;
+      box-sizing: border-box;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: inherit;
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 가로 list
+@mixin listRow {
+  
+  .listRow {
+    flex: none;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+
+    .photo {
+      position: relative;
+      flex: none;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+}
+
+// 성별 아이콘
+@mixin gender {
+  em.gender {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+
+    &.female {
+      background: url(https://image.dallalive.com/common/icon/icoFemale.png) center/cover no-repeat;
+    }
+
+    &.male {
+      background: url(https://image.dallalive.com/common/icon/icoMale.png) center/cover no-repeat;
+    }
+  }
+}
+
+@mixin dataCnt {
+  i.dataCnt{
+    flex-shrink: 0;
+    display: inline-block;
+    margin-right: 8px;
+    padding-left: 16px;
+    font-style: normal;
+    @include font(12px, 500, #8B8B8B);
+    line-height: 16px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+
+    &.totalCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-twoman.png);
+    }
+
+    &.boostCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-booster.png);
+      @include font(12px, 400, #FF7400);
+    }
+
+    &.listenerCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-listenerCnt.png);
+    }
+
+    &.presentCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-present.png);
+    }
+
+    &.likeCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-heart.png);
+    }
+
+    &.replyCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-reply.png);
+    }
+  }
+}
+
+@mixin i {
+  i {
+    &.dataCnt.starCnt {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-star.png);
+    }
+    &.dataCnt.listenPoint {
+      background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-time.png);
+    }
+  }
+}
+
+@mixin favorites {
+  
+  .listColumn {
+    width: 80px;
+    cursor: pointer;
+
+    .photo {
+      @include flex(center, center);
+      height: 80px;
+      margin-bottom: 4px;
+      background-image: linear-gradient(to bottom, #FF3C7B, #FF8565) !important;
+      background-origin: border-box;
+      background-clip: border-box;
+      overflow: hidden;
+      border: 2px solid rgba(0,0,0,0);
+      border-radius: 50%;
+
+      img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        background-color: white;
+        border: 3px solid #fff;
+        border-radius: 50%;
+      }
+
+      &.off {
+        background: #ccc !important;
+      }
+    }
+
+    .pNick {
+      width: 100%;
+      line-height: 16px;
+      padding: 0 8px;
+      text-align: center;
+      @include font(12px, 400, #303030);
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}
+
+@mixin topTen {
+
+  .listColumn {
+    width: 116px;
+    cursor: pointer;
+
+    .photo {
+      position: relative;
+      height: 154px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @for $i from 1 to 10 {
+        .rank-#{$i} {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          width: 100%;
+          height: 55px;
+          padding: 0 8px 8px;
+          background: url(https://image.dallalive.com/main/dalla/number_W-#{$i}.png) center/cover no-repeat;
+          background-size: 49px 47px;
+          background-position: calc(100% - 8px) top;
+        }
+      }
+
+    }
+
+    .teamSymbol {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16%);
+      overflow: hidden;
+      @include flex(center, center);
+      width: 116px;
+      height: 154px;
+      margin-bottom: 8px;
+      box-shadow: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      .img {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        width: 100%;
+
+        &:first-child {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .pNick {
+      width: 100%;
+      line-height: 22px;
+      padding: 0 8px;
+      text-align: center;
+      @include font(15px, 400, #303030);
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+}
+
+@mixin liveListWrap {
+
+  .listRow {
+    position: relative;
+    @include flex(center);
+    height: 110px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+    .photo {
+      @include flex(center, center);
+      position: relative;
+      width: 110px;
+      height: 110px;
+      border-radius: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 8px;
+      }
+    }
+
+    .listContent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      height: 100%;
+      padding: 8px 0;
+      margin-left: 12px;
+      box-sizing: border-box;
+
+      .listItem {
+        @include flex(center);
+        min-height: 2px;
+        margin-bottom: 2px;
+
+        &:nth-child(1) {
+          margin-bottom: 3px;
+        }
+
+        &:nth-child(3) {
+          margin-top: auto;
+        }
+
+        .badgeItem.starDj {
+          width: 46.5px;
+          text-indent: -99999px;
+          background: url(https://image.dallalive.com/badge/dalla/bdg_star-2.png) center/cover no-repeat;
+        }
+
+        .title {
+          @include font(15px, 700, #303030);
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        em.gender{
+          flex-shrink: 0;
+          width: 14px;
+          height: 14px;
+          
+          &.female {
+            background: url(https://image.dallalive.com/common/icon/icoFemale.png) center/cover no-repeat;
+          }
+
+        }
+
+        .nickNm {
+          margin-left: 4px;
+          @include font(13px, 400, #666);
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        .state {
+          @include font(13px, 400, #999);
+
+          i.dataCnt {
+            flex-shrink: 0;
+            display: inline-block;
+            margin-right: 8px;
+            padding-left: 16px;
+            @include font(12px, 500, #8B8B8B);
+            font-style: normal;
+            line-height: 16px;
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+
+            &.totalCnt {
+              background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-twoman.png);
+            }
+
+            &.boostCnt {
+              background-image: url(https://image.dallalive.com/common/dataCnt/dataIcon-booster.png);
+              @include font(12px, 400, #FF7400);
+            }
+            
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@mixin clip {
+  
+  .photo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: auto;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(219,219,219,0.2);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    img {
+      border-radius: 8px;
+    }
+
+  }
+
+  .title {
+    width: 100%;
+    padding: 0 4px;
+    line-height: 19px;
+    margin-top: 6px;
+    @include font(14px, 600, #202020);
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .nick {
+    width: 100%;
+    padding: 0 4px;
+    line-height: 16px;
+    @include font(12px, 400, #303030);
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+}
+
+@mixin nowClipWrap {
+  
+  .listRow {
+    .photo {
+      position: relative;
+      width: 50px;
+      height: 50px;
+
+      img {
+        border-radius: 16px;
+      }
+    }
+
+    .listContent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      margin-left: 12px;
+
+      .title {
+        @include font(14px, 600, #202020);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .nick {
+        @include font(12px, 400, #303030);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+}
+
+@mixin live {
+  
+  .listColumn {
+    width: 116px;
+    height: 154px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .photo {
+      position: relative;
+      width: 116px;
+      height: 154px;
+      border-radius: 8px;
+      box-sizing: border-box;
+  
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  
+    .nick {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 24px 8px 8px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }  
+
+}
+
+@mixin dj {
+  
+  .listColumn {
+    width: 87px;
+
+    .photo {
+      position: relative;
+      height: 87px;
+      width: 100%;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .listItem {
+      @include flex(center, center);
+      width: 100%;
+      height: 17px;
+      margin: 8px 0;
+
+      em {
+        &.female {
+          background: url(https://image.dallalive.com/common/icon/icoFemale.png) center/cover no-repeat;
+        }
+  
+        &.male {
+          background: url(https://image.dallalive.com/common/icon/icoMale.png) center/cover no-repeat;
+        }
+      }
+
+      .nickNm {
+        margin-left: 4px;
+        @include font(13px, 500, #303030);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 26px;
+      }
+
+    }
+  }
+
+  button {
+    width: 62px;
+    line-height: 30px;
+    background-color: #202020;
+    border: 1px solid #202020;
+    border-radius: 100px;
+    @include font(12px, 500, #fff);
+  }
+
+}
+
+@mixin ranking {
+  
+  .listColumn {
+    position: relative;
+    flex: none;
+    @include flex(center, center);
+    flex-direction: column;
+    width: 150px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #FFF;
+    cursor: pointer;
+
+    .photo {
+      position: relative;
+      height: 100%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  .rankWrap {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    @include flex(center, center);
+    flex-direction: column;
+    width: 35px;
+    height: 42px;
+    background: url(https://image.dallalive.com/ranking/dalla/rankingTag-topDJ.png) center/cover no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .rank {
+      width: 100%;
+      height: 100%;
+      letter-spacing: -1px;
+      text-align: center;
+      @include font(22px, 600, #fff);
+      line-height: 34px;
+    }
+  }
+
+  .infoWrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include flex(flex-start, center);
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1;
+
+    .userNick {
+      width: 100%;
+      @include font(14px, 500, #fff);
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+}
+
+@mixin dailyRankList {
+  
+  .listRow {
+    cursor: pointer;
+    flex: none;
+    @include flex(center);
+    width: 100%;
+    min-width: 0;
+    margin-top: 15px;
+
+    .photo {
+      position: relative;
+      flex: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+  
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+  
+    .rank {
+      order: -1;
+      flex: none;
+      @include flex(center, center);
+      flex-direction: column;
+      width: 30px;
+      margin-right: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    .listContent {
+      flex: 1;
+      padding: 0 16px;
+      @include flex(center, center);
+      flex-direction: column;
+      overflow: hidden;
+  
+      .listItem {
+        @include flex(center);
+        width: 100%;
+  
+        .nickNm {
+          line-height: 20px;
+          margin-left: 4px;
+          font-size: 14px;
+          font-weight: 500;
+          color: #202020;
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  
+}
+
+@mixin listWrap {
+  
+  .photo {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    margin-right: 12px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(219,219,219,0.2);
+      border-radius: 16px;
+      box-sizing: border-box;
+    }
+
+    img {
+      border-radius: 16px;
+    }
+  }
+
+  .listContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+
+    .title {
+      @include font(14px, 600, #202020);
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .nickNm {
+      @include font(12px, 400, #303030);
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+}
+
+@mixin rankTop {
+
+  position: relative;
+  box-sizing: border-box;
+  flex-direction: column;
+
+  .topContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4px;
+    .ranker {
+      flex: 1;
+  
+      &:nth-child(1) {
+        order: 2;
+  
+        .photo {
+          width: 100px;
+          height: 100px;
+        }
+      }
+  
+      &:nth-child(2) {
+        order: 1;
+      }
+  
+      &:nth-child(3) {
+        order: 3;
+      }
+  
+      .listColumn {
+        width: 84px;
+        height: 128px;
+        margin: 0 auto;
+        cursor: pointer;
+  
+        .photo {
+          border-radius: 50%;
+          box-sizing: border-box;
+          margin-top: auto;
+  
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(219,219,219,0.2);
+            border-radius: 50%;
+            box-sizing: border-box;
+          }
+  
+          img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+  
+          .rankerRank {
+            position: absolute;
+            top: 0px;
+            left: -4px;
+            @include flex(center, center);
+  
+            &.index1 {
+              width: 40px;
+              height: 50px;
+              background: url(https://image.dallalive.com/ranking/dalla/rankDetail_1st.png) center/cover no-repeat;
+            }
+  
+            &.index2 {
+              width: 30px;
+              height: 40px;
+              background: url(https://image.dallalive.com/ranking/dalla/rankDetail_2nd.png) center/cover no-repeat;  
+            }
+  
+            &.index3 {
+              width: 30px;
+              height: 40px;
+              background: url(https://image.dallalive.com/ranking/dalla/rankDetail_3rd.png) center/cover no-repeat;
+            }
+          }
+        }
+  
+        .rankerNick {
+          width: 100%;
+          text-align: center;
+          @include font(14px, 600, #202020);
+          margin-top: 8px;
+          line-height: 20px;
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+  
+      .cupidWrap {
+        position: relative;
+        @include flex(center, center);
+        flex-direction: column;
+        width: 100px;
+        margin: 22px auto 0;
+        padding: 8px;
+        border-radius: 16px;
+        background-color: #F6F6F6;
+  
+        .cupidHeader {
+          @include flex(center, center);
+          width: 74px;
+          height: 20px;
+          border-radius: 100px;
+          padding: 0px 6px 0px 20px;
+          margin: -18px 0 12px;
+          @include font(12px, 500, #fff);
+          background: url(https://image.dallalive.com/common/icon/icon_honey.png) center/cover no-repeat;
+          background-color: #303030;
+          background-position: 4px center;
+          background-size: 16px 16px;
+          box-sizing: border-box;
+        }
+  
+        .cupidContent {
+          @include flex(center, center);
+          flex-direction: column;
+          width: 100%;
+  
+          .cupidThumb {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #CCCCCC;
+  
+            img {
+              width: 100%;
+              border-radius: 50%;
+            }
+          }
+  
+          .cupidNick {
+            width: 100%;
+            margin-top: 7px;
+            text-align: center;
+            line-height: 16px;
+            @include font(12px, 500, #202020);
+            word-break: break-all;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+      }
+  
+    }
+  }
+
+  .listWrap {
+    position: relative;
+    flex: 1;
+    @include flex(center, flex-start);
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 12px 0;
+    margin: 12px 16px;
+    border-top: 1px solid #F2F2F2;
+    
+    .photo {
+      position: relative;
+      flex: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+  
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+  
+    .rank {
+      order: -1;
+      flex: none;
+      @include flex(center, center);
+      flex-direction: column;
+      width: 30px;
+      margin-right: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    .listContent {
+      flex: 1;
+      padding: 0 16px;
+      @include flex(center, center);
+      flex-direction: column;
+      overflow: hidden;
+  
+      .listItem {
+        @include flex(center);
+        width: 100%;
+  
+        .nickNm {
+          line-height: 20px;
+          margin-left: 4px;
+          font-size: 14px;
+          font-weight: 500;
+          color: #202020;
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .listRow {
+      cursor: pointer;
+      flex: none;
+      @include flex(center);
+      width: 100%;
+      margin-bottom: 0px;
+      min-width: 0;
+
+      .listContent {
+        .listItem {
+          i {
+            height: 16px;
+            line-height: 14px;
+            margin-right: 8px;
+            padding-left: 16px;
+            @include font(normal, 12px, 400);
+            color: #8B8B8B;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+@mixin rankerWrap {
+
+  @include flex(flex-start, space-between);
+  width: 100%;
+
+  .ranker {
+    flex: 1;
+    margin-top: auto;
+
+    &:nth-child(1) {
+      .listColumn .photo {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    &:nth-child(2) {
+      order: -1;
+    }
+
+    .listColumn {
+      @include flex(center, center);
+      flex-direction: column;
+      width: 94px;
+      margin: 0 auto;
+      cursor: pointer;
+
+      .photo {
+        position: relative;
+        width: 84px;
+        height: 84px;
+        margin-bottom: 8px;
+        background-color: #acacac;
+        border-radius: 8px;
+
+
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 1px solid rgba(219,219,219,0.2);
+          border-radius: 8px;
+          box-sizing: border-box;
+        }
+
+        img {
+          width: 100%;
+          border-radius: 8px;
+        }
+
+        .rank {
+          position: absolute;
+          top: -4px;
+          left: -8px;
+          @include flex(center, center);
+          width: 28px;
+          height: 28px;
+          line-height: 28px;
+          border-radius: 50%;
+          background: linear-gradient(to bottom, #FF3C7B 0%, #FF8565 100%);
+          @include font(20px, 700, #fff);
+        }
+
+        .play {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 28px;
+          height: 28px;
+          background: url(https://image.dallalive.com/clip/dalla/ico_playAll.png) center/cover no-repeat;
+          background-size: auto 14px;
+        }
+      }
+
+      .title {
+        width: 100%;
+        margin-bottom: 2px;
+        text-align: center;
+        @include font(13px, 600, #202020);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .nick {
+        width: 100%;
+        text-align: center;
+        @include font(12px, 400, #666);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+}
+
+@mixin listRows {
+  .listRow {
+    @include flex(center);
+    width: 100%;
+    margin-bottom: 15px;
+    min-width: 0;
+    cursor: pointer;
+
+    .photo {
+      position: relative;
+      flex: none;
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #acacac;
+
+      img {
+        width: 100%;
+      }
+      
+      .play {
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 28px;
+        height: 28px;
+        background: url(https://image.dallalive.com/clip/dalla/ico_playAll.png) center/cover no-repeat;
+        background-size: auto 14px;
+      }
+    }
+
+    .rank {
+      order: -1;
+      flex: none;
+      width: 30px;
+      margin-right: 8px;
+      text-align: center;
+      @include font(16px, 600, #333);
+    }
+
+    .listContent {
+      flex: 1;
+      padding: 0 16px;
+      overflow: hidden;
+
+      .type {
+        @include font(12px, 400, #303030);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .title {
+        @include font(14px, 500, #202020);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .nick {
+        @include font(13px, 400, #666);
+        word-break: break-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+@mixin listClip {
+  
+  .listRow {
+    margin-bottom: 12px;
+
+    .photo {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      margin-right: 12px;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(219,219,219,0.2);
+        border-radius: 16px;
+        box-sizing: border-box;
+      }
+
+      img {
+        border-radius: 16px;
+      }
+    }
+
+    .listContent {
+      width: calc(100% - 152px);
+      height: 72px;
+      @include flex(none, space-evenly);
+      flex-direction: column;
+
+      .listItem {
+        @include flex(center);
+
+        .title {
+          width: 100%;
+          @include font(14px, 500, inherit);
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        .nickNm {
+          margin-left: 4px;
+          @include font(13px, 400, #666);
+          word-break: break-all;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+
+      }
+    }
+
+    .moreBtn {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      margin-left: auto;
+      margin-bottom: auto;
+      background: url(https://image.dallalive.com/mypage/dalla/clip/ico_moreBtn.png) center/cover no-repeat;
+      cursor: pointer;
+      z-index: 20;
+    }
+  }
+
+}
+
+@mixin hotClip {
+  
+  .photo {
+    position: relative;
+    flex: none;
+    display: inline-block;
+    width: 112px;
+    height: 112px;
+    margin-right: 16px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(219,219,219,0.2);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  .listContent {
+    padding: 0 0;
+
+    .info {
+      display: inline-block;
+      word-break: break-all;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+  
+      img {
+        height: 36px;
+        margin: 17px 0;
+        object-fit: contain;
+      }
+  
+      .textArea {
+        div {
+  
+          @include flex(center);
+          height: 20px;
+          line-height: 24px;
+  
+          .type {
+            flex-shrink: 0;
+            margin-right: 5px;
+            @include font(12px, 500, #303030);
+          }
+  
+          .title {
+            @include font(15px, 600, #202020);
+            word-break: break-all;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+  
+        .nickName {
+          line-height: 18px;
+          @include font(12px, 400, #666);
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+
+}
+
+// ========================
+@include listColumn;
+@include listRow;
+@include gender;
+@include dataCnt;
+@include i;
+
+.favorites {
+  position: relative;
+  margin-top: 16px;
+  // margin-bottom: 28px;
+  margin-bottom: 8px;
+
+  @include favorites;
+}
+
+.topTen {
+  margin-top: 24px;
+  margin-bottom: 8px;
+
+  @include topTen;
+}
+
+.liveListWrap {
+  // min-height: 360px;
+  padding: 12px 16px 16px;
+  overflow: hidden;
+  margin-bottom: 8px;
+
+  @include liveListWrap;
+}
+
+.clip {
+  margin-bottom: 8px;
+  max-width: 150px;
+
+  @include clip;
+}
+
+.nowClipWrap {
+
+  @include nowClipWrap;
+}
+
+.live {
+  position: relative;
+  width: 100%;
+  // margin-bottom: 44px;
+  margin-bottom: 8px;
+
+  @include live;
+}
+
+.dj {
+@include flex(center, center);
+flex-direction: column;
+margin-bottom: 8px;
+width: 100px;
+
+@include dj;
+}
+
+.ranking {
+  margin-bottom: 8px;
+
+  @include ranking;
+}
+
+.dailyRankList {
+  margin-bottom: 8px;
+  position: relative;
+  @include flex(center, flex-start);
+  flex-direction: column;
+  overflow: auto;
+
+  @include dailyRankList;
+}
+
+.rankTop {
+  @include flex(center, center);
+
+  @include rankTop;
+}
+
+.rankerWrap {
+  @include rankerWrap;
+}
+
+.colList {
+  @include flex($fd: column);
+}
+
+.photoStyle-1 {
+  width:200px;height:300px;
+}
+
+.photoStyle-2 {
+  width:200px;height:300px;
+}
+
+.myListWrap {
+  position: relative;
+  padding: 0 16px;
+  margin-bottom: 15px;
+  cursor: pointer;
+
+  @include listWrap;
+}
+
+.listClip {
+  position: relative;
+  padding: 0 16px;
+  margin-bottom: 15px;
+
+  @include listClip;
+}
+
+.hotClip {
+  display: flex;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  @include hotClip;
+}
+
+.rankWrapRoList {
+  @include listRows;
+}
+
