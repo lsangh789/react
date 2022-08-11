@@ -1,0 +1,157 @@
+@import '../scss/import/_mixin.scss';
+
+#GNB {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-width: 480px;
+    height: 68px;
+    background-color: white;
+    border-bottom: 2px solid #E0E0E0;
+    z-index: 50;
+    overflow-x: hidden;
+
+
+    .cursorPointer {
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f0f0f0;
+            border-radius: 50px;
+        }
+
+        .saleStore {
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+            bottom: 0px;
+            @include disalijust(flex,center,center);
+            height: 16px;
+            padding: 0px 5px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            background-color: #FF1919;
+        }
+
+        .newDot {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #FF3C7B;
+        }
+    }
+
+    .gnbContainer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 auto;
+        z-index: 50;
+
+        .gnHeader {
+
+            flex: 1;
+            @include disalijust(flex,center,center);
+
+            h1 {
+                display: block;
+                width: 200px;
+                height: 30px;
+                cursor: pointer;
+    
+                img {
+                    width: 86px;
+                    height: 100%;
+                }
+    
+            }
+
+        }
+
+        .gnbNavigation {
+
+            flex: 1;
+            @include disalijust(flex,center,center);
+            width: 480px;
+
+            ul {
+                @include disalijust(flex,center,space-between);
+                width: 328px;
+
+                li {
+                    display: flex;
+                    width: 52px;
+                    height: 52px;
+                }
+
+            }
+
+        }
+
+        .subGnbNavigation {
+            flex: 1;
+            @include disalijust(flex,center,center);
+
+            ul {
+                display: flex;
+                align-items: center;
+
+                li {
+                    display: flex;
+                    position: relative;
+                    width: 44px;
+                    height: 44px;
+
+                    &+li {
+                        margin-left: 6px;
+                    }
+                }
+
+            }
+
+            .plusButton {
+                position: relative;
+                @include disalijust(flex,center,center);
+                width: 114px;
+                line-height: 34px;
+                margin-left: 11px;
+                border: 1px solid #D9D9D8;
+                border-radius: 2px;
+                font-size: 14px;
+                color: #161616;
+                background-color: white;
+                cursor: pointer;
+
+                &:hover {
+                    border: none;
+                    color: #ffffff;
+                    background-color: rgb(233, 75, 75);
+                }
+
+                &::before {
+                    content: '+';
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    line-height: 10px;
+                    margin-left: 10px;
+                    margin-right: 4px;
+                    font-size: 18px;
+                }
+
+            }
+
+        }
+
+
+
+    }
+
+}

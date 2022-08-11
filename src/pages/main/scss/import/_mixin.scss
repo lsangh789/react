@@ -1,0 +1,11 @@
+// @mixin pageFrame($position, $hei){
+//     position: $position;
+//     width: 100%;
+//     height: $hei;
+// }
+
+@mixin disalijust($display, $align, $justify){
+    display: $display;
+    align-items: $align;
+    justify-content: $justify;
+}

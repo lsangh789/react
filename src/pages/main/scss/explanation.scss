@@ -1,0 +1,25 @@
+@import '../scss/import/_mixin.scss';
+
+#topInfo {
+    position: relative;
+    width: 100%;
+    background-color: #7637F1;
+
+    .eventSchedule {
+        position: absolute;
+        @include disalijust(flex,center,center);
+        top: 3.5%;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+        border: 2px solid #7637F1;
+        border-radius: 100px;
+        padding: 5px 0;
+        font-size: 2.5vh;
+        font-weight: 700;
+        letter-spacing: -1px;
+        color: #232323;
+    }
+
+
+}
